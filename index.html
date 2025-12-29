@@ -16,12 +16,14 @@
 
         header { text-align: center; padding: 40px 0; border-bottom: 1px solid #eee; }
         h1 { margin: 0; color: #2c3e50; }
-        .subtitle { color: #7f8c8d; font-size: 1.2em; }
+        .subtitle { color: #7f8c8d; font-size: 1.2em; margin-bottom: 20px; display: block; }
         
         /* Buttons */
-        .btn { display: inline-block; background: #2c3e50; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; transition: background 0.3s; }
+        .btn { display: inline-block; background: #2c3e50; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background 0.3s; }
         .btn:hover { background: #34495e; }
-        .btn-outline { background: transparent; border: 2px solid #2c3e50; color: #2c3e50; margin-right: 10px; }
+        
+        /* Outline Button (for LinkedIn) */
+        .btn-outline { background: transparent; border: 2px solid #2c3e50; color: #2c3e50; }
         .btn-outline:hover { background: #2c3e50; color: white; }
 
         section { padding: 30px 0; border-bottom: 1px solid #eee; }
@@ -49,7 +51,11 @@
     <header>
         <h1>Ashwin Ramaseshan</h1>
         <p class="subtitle">Master's Student (UCLA) | Full Stack Developer | Data Scientist</p>
-        <a href="mailto:your.email@example.com" class="btn">Contact Me</a>
+        
+        <div>
+            <a href="mailto:ashwin.ramases@gmail.com" class="btn">Email Me</a>
+            <a href="https://www.linkedin.com/in/ashwin-ramaseshan-a63188201/" class="btn btn-outline" target="_blank">LinkedIn</a>
+        </div>
     </header>
 
     <section id="about">

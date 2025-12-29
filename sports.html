@@ -10,11 +10,23 @@
         nav a { color: white; text-decoration: none; margin-right: 20px; font-weight: bold; }
         nav a:hover { color: #ecf0f1; text-decoration: underline; }
         .nav-brand { font-size: 1.2em; }
-        h1 { color: #e67e22; border-bottom: 2px solid #eee; padding-bottom: 10px; } /* Orange accent for sports */
+        
+        /* Sports Page Specific Styles */
+        h1 { color: #e67e22; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        
+        /* Card Style */
         .project-card { background: #fff8f0; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #e67e22; }
-        .tech-stack { font-size: 0.9em; color: #666; font-style: italic; margin-bottom: 10px; display: block;}
-        .btn-small { background: #e67e22; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; font-size: 0.9em; }
+        
+        .tech-stack { font-size: 0.9em; color: #666; font-style: italic; margin-bottom: 15px; display: block;}
+        
+        /* Buttons */
+        .btn-container { margin-top: 15px; }
+        .btn-small { display: inline-block; background: #e67e22; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 0.9em; margin-right: 10px; transition: background 0.3s; }
         .btn-small:hover { background: #d35400; }
+        
+        .btn-outline-small { display: inline-block; background: transparent; border: 1px solid #e67e22; color: #e67e22; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 0.9em; transition: all 0.3s; }
+        .btn-outline-small:hover { background: #e67e22; color: white; }
+
         footer { text-align: center; margin-top: 40px; color: #aaa; font-size: 0.8em; }
     </style>
 </head>
@@ -31,20 +43,39 @@
     </nav>
 
     <h1>🏀 Sports Analytics Projects</h1>
-    <p>Exploring data in the NBA, Cricket, and more.</p>
+    <p>Exploring data in the EPL, NBA, Cricket, and more.</p>
+
+    <div class="project-card">
+        <h2>EPL Team Performance Analysis Using Modeling & Visualization</h2>
+        <span class="tech-stack">Tech: R (sqldf, glm), Poisson Regression, K-Means Clustering, Tableau</span>
+        <p>
+            Investigated the efficiency of English Premier League clubs by analyzing the relationship between financial resources and on-field success. I collected data from FBref and Transfermarkt, using R's <code>sqldf</code> package to merge seasonal performance metrics with squad characteristics.
+        </p>
+        <p>
+            I applied <strong>K-Means Clustering</strong> to identify "efficient buyers" (like Brighton & Brentford) and implemented <strong>Poisson Regression</strong> models to predict win totals. The analysis revealed that while relative spending is a significant predictor, older squads and high player turnover rates show a statistically significant negative impact on performance.
+        </p>
+        <div class="btn-container">
+            <a href="https://github.com/Ashwin987/EPL-Performance-Analysis" class="btn-small" target="_blank">View Code</a>
+            <a href="https://github.com/Ashwin987/EPL-Performance-Analysis/raw/main/Project%20Writeup.pdf" class="btn-outline-small" target="_blank">View Project Writeup (PDF)</a>
+        </div>
+    </div>
 
     <div class="project-card">
         <h2>NBA Warriors Game Analysis</h2>
         <span class="tech-stack">Tech: Python, Pandas, Visualization</span>
         <p>An analysis of Golden State Warriors game data, visualizing shot efficiency and player impact metrics.</p>
-        <a href="#" class="btn-small">View Project</a>
+        <div class="btn-container">
+            <a href="#" class="btn-small">View Code</a>
+        </div>
     </div>
 
     <div class="project-card">
         <h2>Cricket Match Prediction (India vs SA)</h2>
         <span class="tech-stack">Tech: R, Predictive Modeling</span>
         <p>Using historical match data to predict outcomes and analyze key turning points in international test matches.</p>
-        <a href="#" class="btn-small">View Project</a>
+        <div class="btn-container">
+            <a href="#" class="btn-small">View Code</a>
+        </div>
     </div>
 
     <footer>

@@ -3,134 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Analytics - Ashwin</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
-        nav { background: #2c3e50; padding: 15px; border-radius: 5px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: white; text-decoration: none; margin-right: 20px; font-weight: bold; }
-        nav a:hover { color: #ecf0f1; text-decoration: underline; }
-        .nav-brand { font-size: 1.2em; }
-        
-        /* Sports Page Specific Styles */
-        h1 { color: #e67e22; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        
-        /* Card Style */
-        .project-card { background: #fff8f0; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #e67e22; }
-        
-        .tech-stack { font-size: 0.9em; color: #666; font-style: italic; margin-bottom: 15px; display: block;}
-        
-        /* Buttons */
-        .btn-container { margin-top: 15px; }
-        .btn-small { display: inline-block; background: #e67e22; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 0.9em; margin-right: 10px; transition: background 0.3s; }
-        .btn-small:hover { background: #d35400; }
-        
-        .btn-outline-small { display: inline-block; background: transparent; border: 1px solid #e67e22; color: #e67e22; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 0.9em; transition: all 0.3s; }
-        .btn-outline-small:hover { background: #e67e22; color: white; }
+    <title>Sports Analytics - Ashwin Ramaseshan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        footer { text-align: center; margin-top: 40px; color: #aaa; font-size: 0.8em; }
+    <style>
+        :root {
+            --primary: #2563eb;       /* Modern Blue (matching Home) */
+            --primary-dark: #1e40af;
+            --accent: #e67e22;        /* Subtle Orange accent for Sports context */
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        /* Navigation (Same as Home) */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover { color: var(--primary); }
+        nav a:hover::after { width: 100%; }
+
+        /* Page Title */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.05); /* Soft, premium shadow */
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .tech-stack {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        /* Buttons */
+        .btn-container {
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-fill {
+            background-color: var(--text-main);
+            color: white;
+        }
+
+        .btn-fill:hover {
+            background-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            background-color: #f9fafb;
+            transform: translateY(-1px);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-brand">Ashwin Ramaseshan</div>
-        <div>
+    <div class="container">
+        <nav>
             <a href="index.html">Home</a>
             <a href="academic.html">Academic Projects</a>
             <a href="sports.html">Sports Analytics</a>
             <a href="resume.pdf" target="_blank">Resume</a>
-        </div>
-    </nav>
+        </nav>
 
-    <h1>🏀 Sports Analytics Projects</h1>
-    <p>Exploring data in the EPL, NBA, Cricket, and more.</p>
-
-    <div class="project-card">
-        <h2>AFC Bournemouth Scouting Report - Summer 2025</h2>
-        <span class="tech-stack">Tech: R, K-Means Clustering, Radar Charts, Efficiency Scoring, FBref Data</span>
-        <p>
-            Developed a data-driven recruitment strategy to support AFC Bournemouth's summer transfer window, specifically targeting replacements for key departures under Andoni Iraola's high-pressing system. I built a rigorous data pipeline using <strong>R</strong> to scrape and normalize statistics from FBref and Transfermarkt, adjusting for league difficulty across Europe's top 5 leagues.
-        </p>
-        <p>
-            I utilized <strong>K-Means clustering</strong> and custom <strong>Efficiency Scores</strong> (balancing performance vs. market value) to identify players who fit the club's tactical profile—specifically high-line goalkeepers and ball-playing defenders. The analysis successfully identified <strong>Bafodé Diakité</strong> as a top target due to his balanced defensive output and progressive passing; the model was validated when the club actually signed him, marking a major success for this scouting framework.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/afc-bournemouth-" class="btn-small" target="_blank">View Code</a>
-            <a href="https://github.com/Ashwin987/afc-bournemouth-/raw/main/Bournmouth_project-3.pdf" class="btn-outline-small" target="_blank">View Scouting Report (PDF)</a>
+        <div class="page-header">
+            <h1>Sports Analytics</h1>
+            <p class="subtitle">Data-driven insights into the EPL, NBA, and modern football tactics.</p>
         </div>
+
+        <div class="project-card">
+            <div class="project-title">AFC Bournemouth Scouting Report - Summer 2025</div>
+            <span class="tech-stack">R • Clustering • Radar Charts • Efficiency Scoring</span>
+            <p>
+                Developed a data-driven recruitment strategy to support AFC Bournemouth's summer transfer window, targeting replacements for key departures under Andoni Iraola's high-pressing system. Built a rigorous data pipeline using R to scrape and normalize statistics from FBref and Transfermarkt, adjusting for league difficulty.
+            </p>
+            <p>
+                Utilized K-Means clustering and custom Efficiency Scores to identify players fitting the tactical profile—specifically high-line goalkeepers and ball-playing defenders. The analysis successfully identified <strong>Bafodé Diakité</strong> as a top target; the model was validated when the club actually signed him, marking a major success for this scouting framework.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/afc-bournemouth-" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://github.com/Ashwin987/afc-bournemouth-/raw/main/Bournmouth_project-3.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Scouting Report</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Monitoring Injury Risk & Performance: Chelsea FC</div>
+            <span class="tech-stack">Python • Power BI • Random Forest • Time-Series</span>
+            <p>
+                Addressed the challenge of balancing match demands and recovery for Chelsea FC. Developed the <strong>Load Balance Efficiency Score (LBES)</strong>, a composite metric (0-100) that unifies GPS, wellness, and physical testing data to quantify player readiness.
+            </p>
+            <p>
+                Implemented a Random Forest Classifier to predict injury risk sessions with 100% precision for high-risk cases. Designed an interactive Power BI dashboard for performance staff to visualize trends, detecting "red zone" spikes in workload (>20% variance) and estimating recovery timelines.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/Chelsea-FC-Vizathon-2025" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://github.com/Ashwin987/Chelsea-FC-Vizathon-2025/raw/main/Chelsea_Vizathon_Final_Report.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Final Report</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">2022 NBA Rookie Impact Prediction</div>
+            <span class="tech-stack">Python • Machine Learning • Sports Reference API</span>
+            <p>
+                Utilized data science techniques to analyze the 2022-2023 NBA draft class, aggregating statistics from college, international leagues, and the G-League. Applied machine learning models to historical stats to predict the immediate impact prospects would have in their rookie season.
+            </p>
+            <p>
+                This approach provides scouts with a quantitative tool to validate eye-test observations and identify undervalued talent who can address specific team needs immediately.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/2022-NBA-Rookie-Project" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://medium.com/@ashwin.ramases/rookies-prediction-nba-2023-7e0f9b40d5a1" class="btn btn-outline" target="_blank"><i class="fas fa-newspaper"></i> Read Article</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Optimizing FPL Scoring for Defensive Midfielders</div>
+            <span class="tech-stack">Python • Web Scraping • FBref Data</span>
+            <p>
+                Built a web scraper to extract player data from the FPL archive and match reports from FBref to analyze the undervaluation of defensive midfielders. Proposed and tested a new scoring metric: awarding 1 point for every 3 ball recoveries.
+            </p>
+            <p>
+                This adjustment closes the point gap between defensive midfielders and attacking players, making the game more strategically diverse without overcomplicating the rules.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/FPL-Fantasy-Project" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">EPL Team Performance & Spending Efficiency</div>
+            <span class="tech-stack">R • Poisson Regression • K-Means • Tableau</span>
+            <p>
+                Investigated the efficiency of Premier League clubs by analyzing the relationship between financial resources and on-field success. Applied K-Means Clustering to identify "efficient buyers" (like Brighton & Brentford) and implemented Poisson Regression models to predict win totals.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/EPL-Performance-Analysis" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://github.com/Ashwin987/EPL-Performance-Analysis/raw/main/Project%20Writeup.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> View Writeup</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Cricket Match Prediction (India vs SA)</div>
+            <span class="tech-stack">R • Predictive Modeling</span>
+            <p>
+                Used historical match data to predict outcomes and analyze key turning points in international test matches, focusing on statistical predictors for match dominance.
+            </p>
+            <div class="btn-container">
+                <a href="#" class="btn btn-fill"><i class="fab fa-github"></i> View Code</a>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 Ashwin Ramaseshan. All rights reserved.
+        </footer>
     </div>
-
-    <div class="project-card">
-        <h2>Monitoring Injury Risk & Performance: Chelsea FC Vizathon</h2>
-        <span class="tech-stack">Tech: Python, Power BI, Random Forest, Time-Series Analysis</span>
-        <p>
-            Addressed the challenge of balancing match demands, training intensity, and recovery for Chelsea FC. I developed the <strong>Load Balance Efficiency Score (LBES)</strong>, a composite metric scaled 0-100 that unifies disparate data sources (GPS, wellness, and physical testing) to quantify player readiness.
-        </p>
-        <p>
-            The project implemented a <strong>Random Forest Classifier</strong> to predict injury risk sessions with 100% precision for high-risk cases. I also designed an interactive <strong>Power BI dashboard</strong> for performance staff to visualize trends, detecting "red zone" spikes in workload (>20% variance) and estimating recovery timelines based on historical data.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/Chelsea-FC-Vizathon-2025" class="btn-small" target="_blank">View Code</a>
-            <a href="https://github.com/Ashwin987/Chelsea-FC-Vizathon-2025/raw/main/Chelsea_Vizathon_Final_Report.pdf" class="btn-outline-small" target="_blank">View Final Report (PDF)</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>2022 NBA Rookie Impact Prediction</h2>
-        <span class="tech-stack">Tech: Python, Machine Learning, Data Science, Sports Reference API</span>
-        <p>
-            The NBA draft scouting process is notoriously difficult, often taking months to assess player fit. In this project, I utilized data science techniques to analyze the 2022-2023 draft class, aggregating statistics from college (Sports Reference), international leagues (RealGM), and the G-League to build a comprehensive dataset.
-        </p>
-        <p>
-            By applying machine learning models to these historical stats, I aimed to predict the immediate impact these prospects would have in their rookie season. This approach provides scouts with a quantitative tool to validate eye-test observations and identify undervalued talent who can address specific team needs.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/2022-NBA-Rookie-Project" class="btn-small" target="_blank">View Code</a>
-            <a href="https://medium.com/@ashwin.ramases/rookies-prediction-nba-2023-7e0f9b40d5a1" class="btn-outline-small" target="_blank">View Article</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>Optimizing FPL Scoring for Defensive Midfielders</h2>
-        <span class="tech-stack">Tech: Python, Web Scraping, FBref Data</span>
-        <p>
-            Defensive midfielders are notoriously undervalued in Fantasy Premier League (FPL) because the scoring system favors goal contributions over defensive work. I built a web scraper to extract player data from the FPL archive and match reports from FBref for the 2021-22 season to analyze this disparity.
-        </p>
-        <p>
-            To solve this imbalance, I proposed and tested a new scoring metric: awarding 1 point for every 3 ball recoveries (interceptions + tackles won). This adjustment would close the point gap between defensive midfielders and attacking players, making the game more strategically diverse without overcomplicating the rules.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/FPL-Fantasy-Project" class="btn-small" target="_blank">View Code</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>EPL Team Performance Analysis Using Modeling & Visualization</h2>
-        <span class="tech-stack">Tech: R (sqldf, glm), Poisson Regression, K-Means Clustering, Tableau</span>
-        <p>
-            Investigated the efficiency of English Premier League clubs by analyzing the relationship between financial resources and on-field success. I collected data from FBref and Transfermarkt, using R's <code>sqldf</code> package to merge seasonal performance metrics with squad characteristics.
-        </p>
-        <p>
-            I applied <strong>K-Means Clustering</strong> to identify "efficient buyers" (like Brighton & Brentford) and implemented <strong>Poisson Regression</strong> models to predict win totals. The analysis revealed that while relative spending is a significant predictor, older squads and high player turnover rates show a statistically significant negative impact on performance.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/EPL-Performance-Analysis" class="btn-small" target="_blank">View Code</a>
-            <a href="https://github.com/Ashwin987/EPL-Performance-Analysis/raw/main/Project%20Writeup.pdf" class="btn-outline-small" target="_blank">View Project Writeup (PDF)</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>Cricket Match Prediction (India vs SA)</h2>
-        <span class="tech-stack">Tech: R, Predictive Modeling</span>
-        <p>Using historical match data to predict outcomes and analyze key turning points in international test matches.</p>
-        <div class="btn-container">
-            <a href="#" class="btn-small">View Code</a>
-        </div>
-    </div>
-
-    <footer>
-        <p><a href="index.html">Back to Home</a></p>
-    </footer>
 
 </body>
 </html>

@@ -4,155 +4,221 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashwin Ramaseshan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Modern Reset & Base Styles */
         :root {
-            --primary-color: #2563eb; /* A nice modern blue */
-            --text-color: #1f2937;
-            --bg-color: #ffffff;
-            --secondary-text: #4b5563;
+            --primary: #2563eb;       /* Modern Blue */
+            --primary-dark: #1e40af;  /* Darker Blue for hover */
+            --text-main: #111827;     /* Almost Black */
+            --text-muted: #6b7280;    /* Grey for secondary text */
+            --bg-body: #f3f4f6;       /* Very light grey background */
+            --bg-card: #ffffff;       /* White card background */
+        }
+
+        /* Base Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Container for centralizing content */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            width: 100%;
-        }
-
-        /* Navigation Bar (Top Right) */
-        nav {
-            padding: 20px 0;
-            display: flex;
-            justify-content: flex-end;
             align-items: center;
         }
 
+        /* Layout Container */
+        .container {
+            width: 100%;
+            max-width: 850px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: flex-end; /* Aligns links to the right */
+            gap: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
         nav a {
-            color: var(--text-color);
             text-decoration: none;
-            margin-left: 25px;
+            color: var(--text-main);
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.2s;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        /* Cool underline hover effect for nav */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
         }
 
         nav a:hover {
-            color: var(--primary-color);
+            color: var(--primary);
         }
 
-        /* Hero Section (Center of Page) */
-        .hero {
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 60px 40px;
             text-align: center;
-            padding: 60px 0 40px 0;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); /* Soft, expensive-looking shadow */
+            margin-top: 40px;
+            animation: fadeIn 1s ease-out;
         }
 
         /* Profile Image */
         .profile-img {
             width: 160px;
             height: 160px;
-            border-radius: 50%; /* Makes it circular */
+            border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 4px solid white; /* White border to separate from background */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
         }
 
+        .profile-img:hover {
+            transform: scale(1.02); /* Subtle zoom on hover */
+        }
+
+        /* Headings */
         h1 {
             font-size: 2.5rem;
             font-weight: 800;
-            margin: 10px 0;
-            color: #111;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
         }
 
-        /* Social Icons Row */
+        /* Social Icons */
         .social-links {
-            margin: 15px 0 25px 0;
+            margin: 20px 0 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         .social-links a {
-            color: var(--secondary-text);
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.2s;
+            color: var(--text-muted);
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            color: var(--primary-color);
+            color: var(--primary);
+            transform: translateY(-3px); /* Lifts up slightly */
         }
 
-        /* Bio Text */
+        /* Bio Section */
         .bio {
-            font-size: 1.1rem;
-            color: var(--secondary-text);
-            max-width: 650px;
-            margin: 0 auto 30px auto;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
         }
 
         .bio strong {
-            color: #111;
+            color: var(--text-main);
             font-weight: 600;
         }
 
-        /* Main Action Buttons */
-        .cta-buttons {
+        .tagline {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            display: block;
+            margin-top: 15px;
+        }
+
+        /* Buttons */
+        .btn-group {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 50px;
         }
 
         .btn {
-            padding: 10px 24px;
-            border-radius: 6px;
+            padding: 12px 28px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.2s;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .btn-primary {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: white;
-            border: 1px solid var(--primary-color);
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
         }
 
         .btn-primary:hover {
-            background-color: #1d4ed8;
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--text-color);
+            color: var(--text-main);
             border: 1px solid #e5e7eb;
         }
 
         .btn-secondary:hover {
-            border-color: #d1d5db;
+            border-color: var(--text-muted);
             background-color: #f9fafb;
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
             margin-top: auto;
-            text-align: center;
             padding: 40px 0;
-            font-size: 0.85rem;
             color: #9ca3af;
+            font-size: 0.9rem;
+            animation: fadeIn 1.2s ease-out;
         }
 
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .main-card { padding: 40px 20px; margin-top: 20px; }
+            nav { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -165,7 +231,7 @@
             <a href="resume.pdf" target="_blank">Resume</a>
         </nav>
 
-        <section class="hero">
+        <main class="main-card">
             
             <img src="linkedin.jpg" alt="Ashwin Ramaseshan" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Ashwin+Ramaseshan&background=0D8ABC&color=fff&size=150'">
 
@@ -179,24 +245,22 @@
 
             <div class="bio">
                 <p>
-                    Hey, I’m a Master’s student in <strong>Applied Statistics and Data Science at UCLA</strong> and a UC Riverside alumnus. 
+                    I am a Master’s student in <strong>Applied Statistics and Data Science at UCLA</strong> and a UC Riverside alumnus. 
                     My work sits at the intersection of <strong>AI, machine learning, and full-stack engineering</strong>.
                 </p>
                 <p>
                     I enjoy turning data into actionable solutions, from building <strong>financial sentiment models at BEDLabs</strong> 
                     to evaluating <strong>Generative AI</strong> for synthetic data. I am currently working on a thesis exploring wildfire insurance risk in California.
                 </p>
-                <p style="font-size: 0.95em; margin-top: 15px; color: #666;">
-                    <em>Aspiring sports analyst with a focus on tactical analysis.</em>
-                </p>
+                <span class="tagline">Aspiring sports analyst with a focus on tactical analysis.</span>
             </div>
 
-            <div class="cta-buttons">
+            <div class="btn-group">
                 <a href="mailto:ashwin.ramases@gmail.com" class="btn btn-primary">Contact Me</a>
                 <a href="academic.html" class="btn btn-secondary">View Projects</a>
             </div>
 
-        </section>
+        </main>
 
         <footer>
             &copy; 2026 Ashwin Ramaseshan. All rights reserved.

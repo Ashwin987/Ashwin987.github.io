@@ -3,133 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Projects - Ashwin</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
-        nav { background: #2c3e50; padding: 15px; border-radius: 5px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: white; text-decoration: none; margin-right: 20px; font-weight: bold; }
-        nav a:hover { color: #ecf0f1; text-decoration: underline; }
-        .nav-brand { font-size: 1.2em; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        
-        .project-card { background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #2c3e50; }
-        .tech-stack { font-size: 0.9em; color: #666; font-style: italic; margin-bottom: 15px; display: block;}
-        
-        /* Button Styles */
-        .btn-container { margin-top: 15px; }
-        .btn-small { display: inline-block; background: #2c3e50; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 0.9em; margin-right: 10px; transition: background 0.3s; }
-        .btn-small:hover { background: #34495e; }
-        
-        .btn-outline-small { display: inline-block; background: transparent; border: 1px solid #2c3e50; color: #2c3e50; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 0.9em; transition: all 0.3s; }
-        .btn-outline-small:hover { background: #2c3e50; color: white; }
+    <title>Academic Projects - Ashwin Ramaseshan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        footer { text-align: center; margin-top: 40px; color: #aaa; font-size: 0.8em; }
+    <style>
+        :root {
+            --primary: #2563eb;       /* Modern Blue */
+            --primary-dark: #1e40af;
+            --accent: #7c3aed;        /* Violet accent for Academic context */
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        /* Navigation (Consistent across all pages) */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover { color: var(--primary); }
+        nav a:hover::after { width: 100%; }
+
+        /* Page Title */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .tech-stack {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        /* Buttons */
+        .btn-container {
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-fill {
+            background-color: var(--text-main);
+            color: white;
+        }
+
+        .btn-fill:hover {
+            background-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            background-color: #f9fafb;
+            transform: translateY(-1px);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-brand">Ashwin Ramaseshan</div>
-        <div>
+    <div class="container">
+        <nav>
             <a href="index.html">Home</a>
             <a href="academic.html">Academic Projects</a>
             <a href="sports.html">Sports Analytics</a>
             <a href="resume.pdf" target="_blank">Resume</a>
-        </div>
-    </nav>
+        </nav>
 
-    <h1>🎓 Academic & Technical Projects</h1>
-
-    <div class="project-card">
-        <h2>Predicting & Generative AI for Digital Marketing Data</h2>
-        <span class="tech-stack">Tech: Python, PyTorch, CTGAN, GPT-2 (LLMs), SMOTE, Synthetic Data Generation</span>
-        <p>
-            Collaborated on a project evaluating generative models (CTGAN, TabDDPM, TVAE, GPT-2) for synthesizing digital marketing datasets to improve ad targeting and model generalization. Assessed statistical fidelity using KS Test and JS Divergence, and benchmarked predictive performance using metrics like accuracy, precision, recall, and F1-score.
-        </p>
-        <p>
-            CTGAN achieved the best overall performance, demonstrating its suitability for synthetic data generation in privacy-sensitive environments.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/generative-ai-digital-marketing/tree/main" class="btn-small" target="_blank">View Code</a>
-            <a href="https://github.com/Ashwin987/generative-ai-digital-marketing/raw/main/Predictive%20%26%20Generative%20AI%20for%20Digital%20Marketing%20Data.pdf" class="btn-outline-small" target="_blank">View Final Report (PDF)</a>
+        <div class="page-header">
+            <h1>Academic & Technical Projects</h1>
+            <p class="subtitle">Statistical modeling, full-stack development, and Generative AI research.</p>
         </div>
+
+        <div class="project-card">
+            <div class="project-title">Predicting & Generative AI for Digital Marketing Data</div>
+            <span class="tech-stack">Python • PyTorch • CTGAN • GPT-2 • Synthetic Data</span>
+            <p>
+                Collaborated on a project evaluating generative models (CTGAN, TabDDPM, TVAE, GPT-2) for synthesizing digital marketing datasets to improve ad targeting and model generalization. Assessed statistical fidelity using KS Test and JS Divergence, and benchmarked predictive performance using metrics like accuracy, precision, recall, and F1-score.
+            </p>
+            <p>
+                CTGAN achieved the best overall performance, demonstrating its suitability for synthetic data generation in privacy-sensitive environments.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/generative-ai-digital-marketing/tree/main" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://github.com/Ashwin987/generative-ai-digital-marketing/raw/main/Predictive%20%26%20Generative%20AI%20for%20Digital%20Marketing%20Data.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> View Final Report</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Predicting Sales Revenue</div>
+            <span class="tech-stack">R • Lasso & Ridge Regression • PCR • OLS</span>
+            <p>
+                Developed predictive models to forecast sales revenue using a dataset of 2,000 observations. Compared Ordinary Least Squares (OLS) against regularized methods (Lasso, Ridge) and Principal Component Regression (PCR).
+            </p>
+            <p>
+                Results showed that Lasso and PCR achieved the highest predictive accuracy (RMSE ≈ 96.5). Lasso provided superior interpretability by isolating key drivers like Store Count and Seasonal Demand. Validated all models using 10-fold Cross-Validation.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/Predicting-Sales-Revenue" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://github.com/Ashwin987/Predicting-Sales-Revenue/raw/main/412_Final_Report-.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> View Final Report</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Modeling U.S. Inflation Using Macroeconomic Indicators</div>
+            <span class="tech-stack">R • Generalized Additive Models (GAM) • C Integration</span>
+            <p>
+                Analyzed 33 years of U.S. economic data (1991–2023) to identify drivers of inflation. The GAM approach achieved a significantly better fit (R² ≈ 0.581) than linear models, successfully capturing the nonlinear "Phillips Curve" relationship between unemployment and inflation.
+            </p>
+            <p>
+                I also implemented a custom C function (integrated into R via <code>.Call()</code>) to compute rolling averages efficiently, demonstrating cross-language optimization.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/Modeling-U.S.-Inflation-Using-Macroeconomic-Indicators" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://github.com/Ashwin987/Modeling-U.S.-Inflation-Using-Macroeconomic-Indicators/raw/main/Inflation_Project__404__Final_Report.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> View Final Report</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Spotify Weekly Playlist Archiver</div>
+            <span class="tech-stack">Python • Spotify Web API • OAuth • Automation</span>
+            <p>
+                Spotify's "Discover Weekly" playlists provide a dynamic way to find new music, but they vanish after seven days. I built an automated solution using the Spotify Web API that seamlessly integrates with a user's account.
+            </p>
+            <p>
+                The tool automatically extracts tracks from the temporary weekly playlist and archives them into a permanent collection, ensuring users never lose their favorite finds.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/SpotifyAPI" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Predicting Student GPA Using Lifestyle Factors</div>
+            <span class="tech-stack">R • Multinomial Logistic Regression</span>
+            <p>
+                Analyzed the influence of lifestyle factors (sleep, study habits) on academic performance. Built and compared four Multinomial Logistic Regression models to classify GPA into tiers. Validated performance using 10-fold Cross-Validation and ROC/AUC analysis to identify key predictors like study efficiency vs. social distractions.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/Applied-Statistics-Modeling-Project" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">FastWeather App</div>
+            <span class="tech-stack">JavaScript • OpenWeatherMap API • HTML/CSS</span>
+            <p>
+                Developed a responsive weather application that leverages the OpenWeatherMap API and browser Geolocation API. The app fetches real-time weather data based on the user's current location and dynamically renders temperature in both Celsius and Fahrenheit, featuring a clean, user-friendly interface.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/FastWeather" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Life Insurance Market Targeting Analysis</div>
+            <span class="tech-stack">R • Data Scraping • Excel • FRED Economic Data</span>
+            <p>
+                Analyzed age-related premature death rates in 36 California counties (pop > 100k) to optimize life insurance targeting strategies. Scraped data from FRED and processed it using R. Identified Santa Clara, Kern, and Alameda counties as optimal growth targets due to low premature death rates combined with significant population size.
+            </p>
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/Insurance-Data-Project" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 Ashwin Ramaseshan. All rights reserved.
+        </footer>
     </div>
-
-    <div class="project-card">
-        <h2>Predicting Sales Revenue</h2>
-        <span class="tech-stack">Tech: R, OLS, Lasso & Ridge Regression, Principal Component Regression (PCR)</span>
-        <p>
-            Developed predictive models to forecast sales revenue using a dataset of 2,000 observations. Compared <strong>Ordinary Least Squares (OLS)</strong> against regularized methods (<strong>Lasso</strong>, <strong>Ridge</strong>) and <strong>Principal Component Regression (PCR)</strong>.
-        </p>
-        <p>
-            Results showed that <strong>Lasso</strong> and <strong>PCR</strong> achieved the highest predictive accuracy (RMSE ≈ 96.5). Lasso provided superior interpretability by isolating key drivers like Store Count and Seasonal Demand. Validated all models using <strong>10-fold Cross-Validation</strong>.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/Predicting-Sales-Revenue" class="btn-small" target="_blank">View Code</a>
-            <a href="https://github.com/Ashwin987/Predicting-Sales-Revenue/raw/main/412_Final_Report-.pdf" class="btn-outline-small" target="_blank">View Final Report (PDF)</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>Modeling U.S. Inflation Using Macroeconomic Indicators</h2>
-        <span class="tech-stack">Tech: R, C Integration, Generalized Additive Models (GAM), Kernel Regression</span>
-        <p>
-            Analyzed 33 years of U.S. economic data (1991–2023) to identify drivers of inflation. The <strong>GAM approach</strong> achieved a significantly better fit (R² ≈ 0.581) than linear models, successfully capturing the nonlinear "Phillips Curve" relationship between unemployment and inflation. I also implemented a custom <strong>C function</strong> (integrated into R) to compute rolling averages efficiently.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/Modeling-U.S.-Inflation-Using-Macroeconomic-Indicators" class="btn-small" target="_blank">View Code</a>
-            <a href="https://github.com/Ashwin987/Modeling-U.S.-Inflation-Using-Macroeconomic-Indicators/raw/main/Inflation_Project__404__Final_Report.pdf" class="btn-outline-small" target="_blank">View Final Report (PDF)</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>Spotify Weekly Playlist Archiver</h2>
-        <span class="tech-stack">Tech: Spotify Web API, Python, OAuth, Automation</span>
-        <p>
-            Spotify's "Discover Weekly" playlists provide a dynamic way to find new music, but they vanish after seven days.
-            I built an automated solution using the <strong>Spotify Web API</strong> that seamlessly integrates with a user's account. The tool automatically extracts tracks from the temporary weekly playlist and archives them into a permanent collection, ensuring users never lose their favorite finds.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/SpotifyAPI" class="btn-small" target="_blank">View Code</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>Predicting Student GPA Using Lifestyle Factors</h2>
-        <span class="tech-stack">Tech: R, Multinomial Logistic Regression, Statistical Modeling</span>
-        <p>
-            Analyzed the influence of lifestyle factors (sleep, study habits) on academic performance. Built and compared four <strong>Multinomial Logistic Regression</strong> models to classify GPA into tiers. Validated performance using <strong>10-fold Cross-Validation</strong> and ROC/AUC analysis to identify key predictors like study efficiency vs. social distractions.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/Applied-Statistics-Modeling-Project" class="btn-small" target="_blank">View Code</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>FastWeather App</h2>
-        <span class="tech-stack">Tech: JavaScript, OpenWeatherMap API, HTML/CSS, Geolocation</span>
-        <p>
-            Developed a responsive weather application that leverages the <strong>OpenWeatherMap API</strong> and browser <strong>Geolocation API</strong>. The app fetches real-time weather data based on the user's current location and dynamically renders temperature in both Celsius and Fahrenheit, featuring a clean, user-friendly interface.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/FastWeather" class="btn-small" target="_blank">View Code</a>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <h2>Life Insurance Market Targeting Analysis</h2>
-        <span class="tech-stack">Tech: R, Data Scraping, Excel, FRED Economic Data</span>
-        <p>
-            Analyzed age-related premature death rates in 36 California counties (pop > 100k) to optimize life insurance targeting strategies. Scraped data from <strong>FRED</strong> and processed it using <strong>R</strong>. Identified Santa Clara, Kern, and Alameda counties as optimal growth targets due to low premature death rates combined with significant population size, while flagging Imperial and San Bernardino counties as high-risk regions.
-        </p>
-        <div class="btn-container">
-            <a href="https://github.com/Ashwin987/Insurance-Data-Project" class="btn-small" target="_blank">View Code</a>
-        </div>
-    </div>
-
-    <footer>
-        <p><a href="index.html">Back to Home</a></p>
-    </footer>
 
 </body>
 </html>

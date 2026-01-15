@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* [KEEP YOUR EXISTING CSS HERE - SAME AS BEFORE] */
+        /* Base Styles */
         :root { --primary: #2563eb; --primary-dark: #1e40af; --text-main: #111827; --text-muted: #6b7280; --bg-body: #f3f4f6; --bg-card: #ffffff; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
@@ -27,12 +27,17 @@
         .profile-img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px; transition: transform 0.3s ease; }
         .profile-img:hover { transform: scale(1.02); }
         h1 { font-size: 2.5rem; font-weight: 800; margin: 0 0 10px 0; letter-spacing: -0.5px; color: var(--text-main); }
+        
+        /* Social Links */
         .social-links { margin: 20px 0 30px 0; display: flex; justify-content: center; gap: 20px; }
         .social-links a { color: var(--text-muted); font-size: 1.6rem; transition: all 0.3s ease; }
         .social-links a:hover { color: var(--primary); transform: translateY(-3px); }
+        
+        /* Bio */
         .bio { font-size: 1.15rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 40px auto; font-weight: 300; }
         .bio strong { color: var(--text-main); font-weight: 600; }
-        .tagline { font-size: 1rem; color: var(--primary); font-weight: 500; display: block; margin-top: 15px; }
+        
+        /* Buttons */
         .btn-group { display: flex; justify-content: center; gap: 15px; }
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; display: inline-block; }
         .btn-primary { background-color: var(--primary); color: white; box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39); }
@@ -54,24 +59,44 @@
         </nav>
 
         <main class="main-card">
+            
             <img src="linkedin.jpg" alt="Ashwin Ramaseshan" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Ashwin+Ramaseshan&background=0D8ABC&color=fff&size=150'">
+
             <h1>Ashwin Ramaseshan</h1>
+
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/ashwin-ramaseshan-a63188201/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:ashwin.ramases@gmail.com"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/Ashwin987" target="_blank"><i class="fab fa-github"></i></a>
             </div>
+
             <div class="bio">
-                <p>I am a Master’s student in <strong>Applied Statistics and Data Science at UCLA</strong> and a UC Riverside alumnus. My work sits at the intersection of <strong>AI, machine learning, and full-stack engineering</strong>.</p>
-                <p>I enjoy turning data into actionable solutions, from building <strong>financial sentiment models at BEDLabs</strong> to evaluating <strong>Generative AI</strong> for synthetic data.</p>
-                <span class="tagline">Aspiring sports analyst with a focus on tactical analysis.</span>
+                <p>
+                    I am a Master’s student in <strong>Applied Statistics and Data Science at UCLA</strong> and a UC Riverside Alumni. 
+                    My technical expertise sits at the intersection of <strong>AI, machine learning, and full-stack engineering</strong>.
+                </p>
+                <p>
+                    I have extensive experience building predictive systems, from developing <strong>financial sentiment models at BEDLabs</strong> 
+                    to evaluating <strong>Generative AI (CTGAN)</strong> for synthetic data. My current research explores the <strong>spatial modeling of wildfire risk</strong> 
+                    in California using advanced statistical estimators.
+                </p>
+                <p>
+                    Beyond research, I am an <strong>aspiring sports analyst</strong> focused on tactical analysis, having built recruitment frameworks 
+                    and injury risk models for elite football clubs.
+                </p>
             </div>
+
             <div class="btn-group">
                 <a href="mailto:ashwin.ramases@gmail.com" class="btn btn-primary">Contact Me</a>
                 <a href="academic.html" class="btn btn-secondary">View Projects</a>
             </div>
+
         </main>
-        <footer>&copy; 2026 Ashwin Ramaseshan. All rights reserved.</footer>
+
+        <footer>
+            &copy; 2026 Ashwin Ramaseshan. All rights reserved.
+        </footer>
     </div>
+
 </body>
 </html>

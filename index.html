@@ -96,24 +96,22 @@
         /* Tech Stack Carousel */
         .tech-carousel {
             width: 100%;
-            max-width: 300px; /* Limits width to show approx 3 icons */
+            max-width: 300px; 
             margin: 0 auto 40px auto;
             overflow: hidden;
             position: relative;
             transform: translateZ(10px);
-            /* Fades the edges to look seamless */
             mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
         }
 
         .tech-track {
             display: flex;
-            gap: 40px; /* Space between icons */
+            gap: 40px; 
             width: max-content;
             animation: scroll 20s linear infinite;
         }
 
-        /* Duplicate the track content in HTML to make it seamless */
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -125,7 +123,6 @@
             transition: all 0.3s ease;
         }
         
-        /* Keep icons colored on hover or default if preferred */
         .tech-track:hover {
             animation-play-state: paused;
         }
@@ -175,9 +172,8 @@
 
             <div class="bio">
                 <p>
-                    I am a Master’s student in Applied Statistics and Data Science at UCLA 
-                    and a UC Riverside Alumni in Computer Science. 
-                    My technical expertise sits at the intersection of AI, machine learning, and full-stack engineering.
+                    I am a Master’s student in Applied Statistics and Data Science at UCLA and a UC Riverside Alumni in Computer Science. 
+                    My technical expertise sits at the intersection of AI, machine learning, data science, and engineering.
                 </p>
                 <p>
                     I have extensive experience designing end-to-end data systems, from building predictive machine learning models and automating data workflows 
@@ -196,7 +192,6 @@
                     <i class="devicon-pandas-original tech-icon" title="Pandas"></i>
                     <i class="devicon-tensorflow-original tech-icon" title="TensorFlow"></i>
                     <i class="devicon-pytorch-original tech-icon" title="PyTorch"></i>
-                    <i class="devicon-tableau-plain colored tech-icon" title="Tableau"></i>
                     <i class="devicon-react-original tech-icon" title="React"></i>
                     <i class="devicon-git-plain tech-icon" title="Git"></i>
                     <i class="devicon-postman-plain tech-icon" title="Postman"></i>
@@ -208,7 +203,6 @@
                     <i class="devicon-pandas-original tech-icon" title="Pandas"></i>
                     <i class="devicon-tensorflow-original tech-icon" title="TensorFlow"></i>
                     <i class="devicon-pytorch-original tech-icon" title="PyTorch"></i>
-                    <i class="devicon-tableau-plain colored tech-icon" title="Tableau"></i>
                     <i class="devicon-react-original tech-icon" title="React"></i>
                     <i class="devicon-git-plain tech-icon" title="Git"></i>
                     <i class="devicon-postman-plain tech-icon" title="Postman"></i>
@@ -232,7 +226,6 @@
     <script>
         // TYPEWRITER EFFECT
         const textElement = document.getElementById('typewriter');
-        // UPDATED PHRASES
         const phrases = ["a Data Scientist.", "a Full-Stack Developer.", "an AI Engineer.", "a Sports Analyst.", "a Researcher."];
         let phraseIndex = 0;
         let charIndex = 0;

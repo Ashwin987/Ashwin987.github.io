@@ -4,191 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports Analytics - Ashwin Ramaseshan</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        :root {
-            --primary: #2563eb;       /* Modern Blue (matching Home) */
-            --primary-dark: #1e40af;
-            --accent: #e67e22;        /* Subtle Orange accent for Sports context */
-            --text-main: #111827;
-            --text-muted: #6b7280;
-            --bg-body: #f3f4f6;
-            --bg-card: #ffffff;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 850px;
-            padding: 20px;
-            margin: 0 auto;
-        }
-
-        /* Navigation (Same as Home) */
-        nav {
-            padding: 30px 0;
-            display: flex;
-            justify-content: flex-end;
-            gap: 30px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--primary);
-            transition: width 0.3s;
-        }
-
+        /* Same CSS as before */
+        :root { --primary: #2563eb; --primary-dark: #1e40af; --accent: #e67e22; --text-main: #111827; --text-muted: #6b7280; --bg-body: #f3f4f6; --bg-card: #ffffff; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        .container { width: 100%; max-width: 850px; padding: 20px; margin: 0 auto; }
+        
+        /* Nav */
+        nav { padding: 30px 0; display: flex; justify-content: flex-end; gap: 25px; animation: fadeIn 0.8s ease-out; }
+        nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.95rem; position: relative; transition: color 0.3s; }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: var(--primary); transition: width 0.3s; }
         nav a:hover { color: var(--primary); }
         nav a:hover::after { width: 100%; }
 
-        /* Page Title */
-        .page-header {
-            text-align: center;
-            margin-bottom: 40px;
-            animation: fadeIn 1s ease-out;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-            color: var(--text-main);
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
-        /* Project Cards */
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 35px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.05); /* Soft, premium shadow */
-            border: 1px solid rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1);
-        }
-
-        .project-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 8px;
-        }
-
-        .tech-stack {
-            font-size: 0.9rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            margin-bottom: 15px;
-            font-size: 1rem;
-        }
-
-        /* Buttons */
-        .btn-container {
-            margin-top: 25px;
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-fill {
-            background-color: var(--text-main);
-            color: white;
-        }
-
-        .btn-fill:hover {
-            background-color: var(--primary);
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid #e5e7eb;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--text-muted);
-            background-color: #f9fafb;
-            transform: translateY(-1px);
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 40px 0;
-            text-align: center;
-            color: #9ca3af;
-            font-size: 0.9rem;
-        }
+        .page-header { text-align: center; margin-bottom: 40px; animation: fadeIn 1s ease-out; }
+        h1 { font-size: 2.2rem; font-weight: 800; margin: 0 0 10px 0; letter-spacing: -0.5px; color: var(--text-main); }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; font-weight: 300; }
+        .project-card { background: var(--bg-card); border-radius: 16px; padding: 35px; margin-bottom: 30px; box-shadow: 0 4px 20px -5px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.02); transition: transform 0.3s ease, box-shadow 0.3s ease; animation: fadeIn 1.2s ease-out; }
+        .project-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1); }
+        .project-title { font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+        .tech-stack { font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-bottom: 15px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
+        .project-card p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; }
+        .btn-container { margin-top: 25px; display: flex; gap: 12px; }
+        .btn { padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-fill { background-color: var(--text-main); color: white; }
+        .btn-fill:hover { background-color: var(--primary); transform: translateY(-1px); }
+        .btn-outline { background-color: transparent; color: var(--text-main); border: 1px solid #e5e7eb; }
+        .btn-outline:hover { border-color: var(--text-muted); background-color: #f9fafb; transform: translateY(-1px); }
+        footer { margin-top: auto; padding: 40px 0; text-align: center; color: #9ca3af; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -196,8 +44,9 @@
     <div class="container">
         <nav>
             <a href="index.html">Home</a>
+            <a href="thesis.html">Thesis</a>
             <a href="academic.html">Academic Projects</a>
-            <a href="sports.html">Sports Analytics</a>
+            <a href="sports.html" style="color: var(--primary);">Sports Analytics</a>
             <a href="resume.pdf" target="_blank">Resume</a>
         </nav>
 
@@ -209,12 +58,7 @@
         <div class="project-card">
             <div class="project-title">AFC Bournemouth Scouting Report - Summer 2025</div>
             <span class="tech-stack">R • Clustering • Radar Charts • Efficiency Scoring</span>
-            <p>
-                Developed a data-driven recruitment strategy to support AFC Bournemouth's summer transfer window, targeting replacements for key departures under Andoni Iraola's high-pressing system. Built a rigorous data pipeline using R to scrape and normalize statistics from FBref and Transfermarkt, adjusting for league difficulty.
-            </p>
-            <p>
-                Utilized K-Means clustering and custom Efficiency Scores to identify players fitting the tactical profile—specifically high-line goalkeepers and ball-playing defenders. The analysis successfully identified <strong>Bafodé Diakité</strong> as a top target; the model was validated when the club actually signed him, marking a major success for this scouting framework.
-            </p>
+            <p>Developed a data-driven recruitment strategy to support AFC Bournemouth's summer transfer window. Utilized K-Means clustering and custom Efficiency Scores to identify players fitting the tactical profile. The analysis successfully identified Bafodé Diakité as a top target.</p>
             <div class="btn-container">
                 <a href="https://github.com/Ashwin987/afc-bournemouth-" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
                 <a href="https://github.com/Ashwin987/afc-bournemouth-/raw/main/Bournmouth_project-3.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Scouting Report</a>
@@ -224,12 +68,7 @@
         <div class="project-card">
             <div class="project-title">Monitoring Injury Risk & Performance: Chelsea FC</div>
             <span class="tech-stack">Python • Power BI • Random Forest • Time-Series</span>
-            <p>
-                Addressed the challenge of balancing match demands and recovery for Chelsea FC. Developed the <strong>Load Balance Efficiency Score (LBES)</strong>, a composite metric (0-100) that unifies GPS, wellness, and physical testing data to quantify player readiness.
-            </p>
-            <p>
-                Implemented a Random Forest Classifier to predict injury risk sessions with 100% precision for high-risk cases. Designed an interactive Power BI dashboard for performance staff to visualize trends, detecting "red zone" spikes in workload (>20% variance) and estimating recovery timelines.
-            </p>
+            <p>Developed the Load Balance Efficiency Score (LBES), a composite metric that unifies GPS, wellness, and physical testing data to quantify player readiness. Implemented a Random Forest Classifier to predict injury risk sessions with 100% precision.</p>
             <div class="btn-container">
                 <a href="https://github.com/Ashwin987/Chelsea-FC-Vizathon-2025" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
                 <a href="https://github.com/Ashwin987/Chelsea-FC-Vizathon-2025/raw/main/Chelsea_Vizathon_Final_Report.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Final Report</a>
@@ -239,12 +78,7 @@
         <div class="project-card">
             <div class="project-title">2022 NBA Rookie Impact Prediction</div>
             <span class="tech-stack">Python • Machine Learning • Sports Reference API</span>
-            <p>
-                Utilized data science techniques to analyze the 2022-2023 NBA draft class, aggregating statistics from college, international leagues, and the G-League. Applied machine learning models to historical stats to predict the immediate impact prospects would have in their rookie season.
-            </p>
-            <p>
-                This approach provides scouts with a quantitative tool to validate eye-test observations and identify undervalued talent who can address specific team needs immediately.
-            </p>
+            <p>Utilized data science techniques to analyze the 2022-2023 NBA draft class. Applied machine learning models to historical stats to predict the immediate impact prospects would have in their rookie season.</p>
             <div class="btn-container">
                 <a href="https://github.com/Ashwin987/2022-NBA-Rookie-Project" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
                 <a href="https://medium.com/@ashwin.ramases/rookies-prediction-nba-2023-7e0f9b40d5a1" class="btn btn-outline" target="_blank"><i class="fas fa-newspaper"></i> Read Article</a>
@@ -254,12 +88,7 @@
         <div class="project-card">
             <div class="project-title">Optimizing FPL Scoring for Defensive Midfielders</div>
             <span class="tech-stack">Python • Web Scraping • FBref Data</span>
-            <p>
-                Built a web scraper to extract player data from the FPL archive and match reports from FBref to analyze the undervaluation of defensive midfielders. Proposed and tested a new scoring metric: awarding 1 point for every 3 ball recoveries.
-            </p>
-            <p>
-                This adjustment closes the point gap between defensive midfielders and attacking players, making the game more strategically diverse without overcomplicating the rules.
-            </p>
+            <p>Built a web scraper to extract player data from the FPL archive and match reports from FBref. Proposed and tested a new scoring metric: awarding 1 point for every 3 ball recoveries, closing the point gap between defensive midfielders and attacking players.</p>
             <div class="btn-container">
                 <a href="https://github.com/Ashwin987/FPL-Fantasy-Project" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
             </div>
@@ -268,9 +97,7 @@
         <div class="project-card">
             <div class="project-title">EPL Team Performance & Spending Efficiency</div>
             <span class="tech-stack">R • Poisson Regression • K-Means • Tableau</span>
-            <p>
-                Investigated the efficiency of Premier League clubs by analyzing the relationship between financial resources and on-field success. Applied K-Means Clustering to identify "efficient buyers" (like Brighton & Brentford) and implemented Poisson Regression models to predict win totals.
-            </p>
+            <p>Investigated the efficiency of Premier League clubs by analyzing the relationship between financial resources and on-field success. Applied K-Means Clustering to identify "efficient buyers" and implemented Poisson Regression models to predict win totals.</p>
             <div class="btn-container">
                 <a href="https://github.com/Ashwin987/EPL-Performance-Analysis" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Code</a>
                 <a href="https://github.com/Ashwin987/EPL-Performance-Analysis/raw/main/Project%20Writeup.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> View Writeup</a>
@@ -280,18 +107,13 @@
         <div class="project-card">
             <div class="project-title">Cricket Match Prediction (India vs SA)</div>
             <span class="tech-stack">R • Predictive Modeling</span>
-            <p>
-                Used historical match data to predict outcomes and analyze key turning points in international test matches, focusing on statistical predictors for match dominance.
-            </p>
+            <p>Used historical match data to predict outcomes and analyze key turning points in international test matches.</p>
             <div class="btn-container">
                 <a href="#" class="btn btn-fill"><i class="fab fa-github"></i> View Code</a>
             </div>
         </div>
 
-        <footer>
-            &copy; 2026 Ashwin Ramaseshan. All rights reserved.
-        </footer>
+        <footer>&copy; 2026 Ashwin Ramaseshan. All rights reserved.</footer>
     </div>
-
 </body>
 </html>

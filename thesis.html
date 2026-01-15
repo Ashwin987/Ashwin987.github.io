@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master's Thesis - Ashwin Ramaseshan</title>
+    <title>Master's Thesis (Draft) - Ashwin Ramaseshan</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,9 @@
         :root {
             --primary: #2563eb;
             --primary-dark: #1e40af;
-            --accent: #7c3aed; /* Violet for Thesis/Research */
+            --accent: #7c3aed; /* Violet for Thesis */
+            --warning-bg: #fffbeb; /* Light yellow for draft notice */
+            --warning-text: #92400e; /* Dark amber text */
             --text-main: #111827;
             --text-muted: #6b7280;
             --bg-body: #f3f4f6;
@@ -85,6 +87,20 @@
             animation: fadeIn 1s ease-out;
         }
 
+        .draft-badge {
+            display: inline-block;
+            background-color: var(--warning-bg);
+            color: var(--warning-text);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border: 1px solid #fcd34d;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
         h1 {
             font-size: 2.2rem;
             font-weight: 800;
@@ -109,6 +125,17 @@
             box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
             border-top: 6px solid var(--accent);
             animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Draft Notice Box */
+        .draft-notice {
+            background-color: #f9fafb;
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
         }
 
         .section-heading {
@@ -193,11 +220,16 @@
         </nav>
 
         <div class="page-header">
+            <div class="draft-badge"><i class="fas fa-tools"></i> Work in Progress</div>
             <h1>Spatial Modeling of Los Angeles County Fires</h1>
-            <p class="subtitle">Master's Dissertation • UCLA (2025)</p>
+            <p class="subtitle">Master's Dissertation • UCLA (Expected 2025)</p>
         </div>
 
         <main class="thesis-card">
+            
+            <div class="draft-notice">
+                <strong>Current Status: Rough Draft.</strong> The methodology, results, and text presented below represent ongoing research. This document is actively being updated as the thesis progresses toward final publication.
+            </div>
             
             <h3 class="section-heading">Overview: The Escalating Crisis</h3>
             <p>
@@ -213,16 +245,16 @@
             <p>
                 This thesis bridges these gaps by applying and extending the <strong>Stoyan–Grabarnik (SG)</strong> framework. Unlike purely temporal or spatial models, the SG model treats fire ignitions as "events" in continuous space and time. It integrates spatial kernels and temporal decay functions into a unified conditional intensity model.
             </p>
-            <p>
-                
-            </p>
+            
+            
+            
             <p>
                 By explicitly incorporating covariates—such as temperature, wind speed, and, crucially, <strong>time-since-burn metrics</strong>—the model captures both external environmental drivers and internal fuel dynamics. This contribution applies the SG framework to the county level, offering a rigorous, interpretable method for understanding where and when fires are most likely to recur in high-risk regions like Los Angeles.
             </p>
 
             <div class="btn-container">
                 <a href="https://github.com/Ashwin987/Thesis" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Repository</a>
-                <a href="https://github.com/Ashwin987/Thesis/raw/main/Thesis%20Rough%20Draft.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Read Draft (PDF)</a>
+                <a href="https://github.com/Ashwin987/Thesis/raw/main/Thesis%20Rough%20Draft.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Read Rough Draft (PDF)</a>
             </div>
 
         </main>

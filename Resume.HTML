@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience & Resume - Ashwin Ramaseshan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --citizens-green: #008751; /* Citizens Bank Brand-ish Green */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        /* Nav */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover { color: var(--primary); }
+        nav a:hover::after { width: 100%; }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        /* Download Button */
+        .resume-btn-container {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 1.1s ease-out;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--text-main);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Experience Cards */
+        .timeline-section {
+            animation: fadeIn 1.3s ease-out;
+        }
+
+        .job-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.02);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Special Style for Upcoming Role */
+        .job-card.upcoming {
+            border-left: 5px solid var(--citizens-green);
+            background: linear-gradient(to right, #fafffc, #ffffff);
+        }
+
+        .role-badge {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: var(--citizens-green);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .company-name {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .job-meta {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .job-meta span {
+            display: block;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .job-header { flex-direction: column; }
+            .job-meta { text-align: left; margin-top: 5px; margin-bottom: 10px; }
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="thesis.html">Thesis</a>
+            <a href="academic.html">Academic Projects</a>
+            <a href="sports.html">Sports Analytics</a>
+            <a href="resume.html" style="color: var(--primary);">Resume</a>
+        </nav>
+
+        <div class="page-header">
+            <h1>Professional Experience</h1>
+        </div>
+
+        <div class="resume-btn-container">
+            <a href="Resume-AshwinRamaseshan.pdf" class="btn-download" target="_blank">
+                <i class="fas fa-file-download"></i> Download Full Resume
+            </a>
+        </div>
+
+        <div class="timeline-section">
+
+            <div class="job-card upcoming">
+                <span class="role-badge">Upcoming</span>
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Data Management Graduate Intern</h3>
+                        <span class="company-name"><i class="fas fa-university"></i> Citizens Bank</span>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted);">Joining the team to drive data governance and analytics initiatives.</p>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Graduate Teaching Assistant – Retail Analytics</h3>
+                        <span class="company-name">UCLA Anderson School of Management</span>
+                    </div>
+                    <div class="job-meta">
+                        <span>Sept 2025 – Dec 2025</span>
+                        <span>Los Angeles, CA</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Supported MBA students in applying customer segmentation, cohort analysis, CLV modeling, and price elasticity concepts to real-world datasets.</li>
+                    <li>Guided students through building SQL-based data pipelines, R analytics scripts, and Tableau dashboards to analyze promotional lift, basket composition, and churn risk.</li>
+                    <li>Designed and built Looker dashboards that visualized sales, promotion lift, and customer cohorts, teaching students how to track KPIs and present actionable insights.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Data Scientist</h3>
+                        <span class="company-name">Jora</span>
+                    </div>
+                    <div class="job-meta">
+                        <span>Mar 2024 – Dec 2024</span>
+                        <span>Los Angeles, CA</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Built and productionized logistic regression models in Python and R to predict weekly active users, driving an 18% lift in retention.</li>
+                    <li>Developed linear regression models to quantify the impact of marketing campaigns on user growth and ROI.</li>
+                    <li>Automated ETL workflows using SQL and Python (pandas) to extract, transform, and load engagement data for model training and monitoring.</li>
+                    <li>Designed time series forecasts for user activity using R, improving the accuracy of growth planning and resource allocation.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Data Scientist Research Intern</h3>
+                        <span class="company-name">Behavioral Economics and Decision Making Lab</span>
+                    </div>
+                    <div class="job-meta">
+                        <span>Aug 2023 – Jun 2024</span>
+                        <span>Riverside, CA</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developed a financial sentiment analysis model using text mining to improve tone and sentiment extraction in corporate earnings calls, achieving 87% accuracy.</li>
+                    <li>Analyzed linguistic and sentiment features from 500+ earnings call transcripts using NLP techniques to identify patterns influencing stock price movement.</li>
+                    <li>Researched, fine-tuned, and integrated Large Language Models (LLMs) for sentiment classification, improving contextual understanding of financial narratives.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">Data Scientist Intern</h3>
+                        <span class="company-name">NFL Sherpa Analytics</span>
+                    </div>
+                    <div class="job-meta">
+                        <span>Aug 2022 – Sep 2023</span>
+                        <span>Remote</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Built forecasting models to project player fantasy performance trends across a season, improving predictive accuracy for draft decisions.</li>
+                    <li>Performed clustering (K-Means) on 2,000+ players to group skill levels and inform draft recommendations.</li>
+                    <li>Improved forecasting precision by 85% (AUC +0.12 vs. baseline) using decision trees, random forests, neural networks, and regression models.</li>
+                    <li>Delivered Tableau dashboards highlighting top-performing players, enabling faster draft decisions and contributing to increased subscription revenue.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer>
+            &copy; 2026 Ashwin Ramaseshan. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>

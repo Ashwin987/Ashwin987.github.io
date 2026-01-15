@@ -181,11 +181,13 @@
             box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
         }
 
-        .btn-fill:hover {
+        /* Hover effects removed for 'Coming Soon' state to indicate disabled */
+        /* .btn-fill:hover {
             background-color: #6d28d9;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
-        }
+        } 
+        */
 
         .btn-outline {
             background-color: transparent;
@@ -193,11 +195,14 @@
             border: 1px solid #e5e7eb;
         }
 
+        /* Hover effects removed for 'Coming Soon' state */
+        /*
         .btn-outline:hover {
             border-color: var(--text-muted);
             background-color: #f9fafb;
             transform: translateY(-2px);
         }
+        */
 
         footer {
             margin-top: auto;
@@ -247,16 +252,16 @@
             </p>
             
             <p>
-                
-            </p>
-            
-            <p>
                 By explicitly incorporating covariates—such as temperature, wind speed, and, crucially, <strong>time-since-burn metrics</strong>—the model captures both external environmental drivers and internal fuel dynamics. This contribution applies the SG framework to the county level, offering a rigorous, interpretable method for understanding where and when fires are most likely to recur in high-risk regions like Los Angeles.
             </p>
 
             <div class="btn-container">
-                <a href="https://github.com/Ashwin987/Thesis" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Repository</a>
-                <a href="https://github.com/Ashwin987/Ashwin987.github.io/raw/main/ThesisRoughDraft.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Read Rough Draft (PDF)</a>
+                <span class="btn btn-fill" style="cursor: default; opacity: 0.7;">
+                    <i class="fab fa-github"></i> Repository Coming Soon
+                </span>
+                <span class="btn btn-outline" style="cursor: default; opacity: 0.7;">
+                    <i class="fas fa-file-pdf"></i> PDF Coming Soon
+                </span>
             </div>
 
         </main>

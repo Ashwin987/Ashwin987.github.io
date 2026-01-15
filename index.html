@@ -93,24 +93,46 @@
         /* Bio */
         .bio { font-size: 1.15rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 30px auto; font-weight: 300; transform: translateZ(5px); }
         
-        /* Tech Stack Icons */
-        .tech-stack-row {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+        /* Tech Stack Carousel */
+        .tech-carousel {
+            width: 100%;
+            max-width: 300px; /* Limits width to show approx 3 icons */
+            margin: 0 auto 40px auto;
+            overflow: hidden;
+            position: relative;
             transform: translateZ(10px);
-            align-items: center;
+            /* Fades the edges to look seamless */
+            mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
         }
+
+        .tech-track {
+            display: flex;
+            gap: 40px; /* Space between icons */
+            width: max-content;
+            animation: scroll 20s linear infinite;
+        }
+
+        /* Duplicate the track content in HTML to make it seamless */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         .tech-icon {
-            font-size: 2rem;
+            font-size: 3rem;
             color: #9ca3af;
             transition: all 0.3s ease;
         }
+        
+        /* Keep icons colored on hover or default if preferred */
+        .tech-track:hover {
+            animation-play-state: paused;
+        }
+        
         .tech-icon:hover {
             color: var(--primary);
-            transform: translateY(-5px);
+            transform: scale(1.1);
         }
 
         /* Buttons */
@@ -153,7 +175,8 @@
 
             <div class="bio">
                 <p>
-                    I am a Master’s student in Applied Statistics and Data Science at UCLA and a UC Riverside Alumni in Computer Science. 
+                    I am a Master’s student in Applied Statistics and Data Science at UCLA 
+                    and a UC Riverside Alumni in Computer Science. 
                     My technical expertise sits at the intersection of AI, machine learning, and full-stack engineering.
                 </p>
                 <p>
@@ -165,21 +188,32 @@
                 </p>
             </div>
 
-            <div class="tech-stack-row">
-                <i class="devicon-python-plain tech-icon" title="Python"></i>
-                <i class="devicon-r-plain tech-icon" title="R Language"></i>
-                <i class="devicon-postgresql-plain tech-icon" title="SQL"></i>
-                
-                <i class="devicon-pandas-original tech-icon" title="Pandas"></i>
-                <i class="devicon-tensorflow-original tech-icon" title="TensorFlow"></i>
-                <i class="devicon-pytorch-original tech-icon" title="PyTorch"></i>
-                
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powerbi/powerbi-original.svg" class="tech-icon" style="width: 32px; height: 32px; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6';" title="Power BI">
+            <div class="tech-carousel">
+                <div class="tech-track">
+                    <i class="devicon-python-plain tech-icon" title="Python"></i>
+                    <i class="devicon-r-plain tech-icon" title="R Language"></i>
+                    <i class="devicon-postgresql-plain tech-icon" title="SQL"></i>
+                    <i class="devicon-pandas-original tech-icon" title="Pandas"></i>
+                    <i class="devicon-tensorflow-original tech-icon" title="TensorFlow"></i>
+                    <i class="devicon-pytorch-original tech-icon" title="PyTorch"></i>
+                    <i class="devicon-tableau-plain colored tech-icon" title="Tableau"></i>
+                    <i class="devicon-react-original tech-icon" title="React"></i>
+                    <i class="devicon-git-plain tech-icon" title="Git"></i>
+                    <i class="devicon-postman-plain tech-icon" title="Postman"></i>
+                    <i class="devicon-amazonwebservices-plain-wordmark tech-icon" title="AWS"></i>
 
-                <i class="devicon-react-original tech-icon" title="React"></i>
-                <i class="devicon-git-plain tech-icon" title="Git"></i>
-                <i class="devicon-postman-plain tech-icon" title="Postman"></i>
-                <i class="devicon-amazonwebservices-plain-wordmark tech-icon" title="AWS"></i>
+                    <i class="devicon-python-plain tech-icon" title="Python"></i>
+                    <i class="devicon-r-plain tech-icon" title="R Language"></i>
+                    <i class="devicon-postgresql-plain tech-icon" title="SQL"></i>
+                    <i class="devicon-pandas-original tech-icon" title="Pandas"></i>
+                    <i class="devicon-tensorflow-original tech-icon" title="TensorFlow"></i>
+                    <i class="devicon-pytorch-original tech-icon" title="PyTorch"></i>
+                    <i class="devicon-tableau-plain colored tech-icon" title="Tableau"></i>
+                    <i class="devicon-react-original tech-icon" title="React"></i>
+                    <i class="devicon-git-plain tech-icon" title="Git"></i>
+                    <i class="devicon-postman-plain tech-icon" title="Postman"></i>
+                    <i class="devicon-amazonwebservices-plain-wordmark tech-icon" title="AWS"></i>
+                </div>
             </div>
 
             <div class="btn-group">

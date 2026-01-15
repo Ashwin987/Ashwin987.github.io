@@ -229,3 +229,42 @@
             
             <div class="draft-notice">
                 <strong>Current Status: Rough Draft.</strong> The methodology, results, and text presented below represent ongoing research. This document is actively being updated as the thesis progresses toward final publication.
+            </div>
+            
+            <h3 class="section-heading">Overview: The Escalating Crisis</h3>
+            <p>
+                Wildfire risk has become an urgent concern across the western United States, with California experiencing unprecedented fire seasons over the last two decades. According to Cal Fire, seven of the ten largest wildfires in state history have occurred since 2017. Los Angeles County represents a particularly compelling study area due to its heterogeneous geography—encompassing coastal regions, dense urban development, and mountainous terrain. The interplay of Santa Ana winds, prolonged droughts, and development at the wildland–urban interface (WUI) has amplified the frequency and destructiveness of these events, overwhelming response capabilities and creating billions of dollars in economic losses.
+            </p>
+
+            <h3 class="section-heading">Methodological Challenges</h3>
+            <p>
+                Efforts to model wildfire occurrence span a wide spectrum, yet significant gaps remain. Traditional regression-based approaches (Logistic, Poisson) offer interpretability but struggle with complex, nonlinear interactions. Conversely, modern Machine Learning methods (Random Forests, Neural Networks) excel at capturing nonlinearities but suffer from a "black box" nature that limits statistical inference. Furthermore, many survival analysis approaches focus purely on the temporal aspect (time-to-fire), often failing to fully integrate the critical spatial dependencies inherent in wildfire spread.
+            </p>
+
+            <h3 class="section-heading">The Solution: Spatio-Temporal SG Models</h3>
+            <p>
+                This thesis bridges these gaps by applying and extending the <strong>Stoyan–Grabarnik (SG)</strong> framework. Unlike purely temporal or spatial models, the SG model treats fire ignitions as "events" in continuous space and time. It integrates spatial kernels and temporal decay functions into a unified conditional intensity model.
+            </p>
+            
+            <p>
+                
+            </p>
+            
+            <p>
+                By explicitly incorporating covariates—such as temperature, wind speed, and, crucially, <strong>time-since-burn metrics</strong>—the model captures both external environmental drivers and internal fuel dynamics. This contribution applies the SG framework to the county level, offering a rigorous, interpretable method for understanding where and when fires are most likely to recur in high-risk regions like Los Angeles.
+            </p>
+
+            <div class="btn-container">
+                <a href="https://github.com/Ashwin987/Thesis" class="btn btn-fill" target="_blank"><i class="fab fa-github"></i> View Repository</a>
+                <a href="https://github.com/Ashwin987/Thesis/raw/main/ThesisRoughDraft.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Read Rough Draft (PDF)</a>
+            </div>
+
+        </main>
+
+        <footer>
+            &copy; 2026 Ashwin Ramaseshan. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
